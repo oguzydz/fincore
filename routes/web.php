@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use App\Http\Controllers\PWAController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,14 +16,12 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard'); 
+Route::group(['as' => 'laravelpwa.'], function () {
+    Route::get('/manifest.json', [PWAController::class, 'manifestJson'])->name(
+        'manifest'
+    );
+    Route::get('/offline', [PWAController::class, 'offline'])->name('offline');
+});
