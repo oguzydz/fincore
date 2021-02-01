@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <h1>Welcome go to <a href="/offline">offline</a></h1>
+    <h1 style="margin: 10px">Welcome go to <a href="/offline" style="text-decoration: underline">offline</a></h1>
 
 @endsection
