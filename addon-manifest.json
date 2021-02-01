@@ -1,0 +1,21 @@
+{
+  "id": "fincore",
+  "api": {
+    "config_vars_prefix": "FINCORE",
+    "config_vars": [
+      "FINCORE_URL"
+    ],
+    "password": "CHANGEME",
+    "sso_salt": "CHANGEME",
+    "regions": [
+      "us"
+    ],
+    "requires": [],
+    "production": {
+      "base_url": "https://myaddon.com/heroku/resources",
+      "sso_url": "https://myaddon.com/sso/login"
+    },
+    "version": "3"
+  },
+  "name": "manifest"
+}
