@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PWAController;
+use App\Http\Controllers\ListController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +27,6 @@ Route::group(['as' => 'laravelpwa.'], function () {
     );
     Route::get('/offline', [PWAController::class, 'offline'])->name('offline');
 });
+
+Route::get('/list', [ListController::class, 'index']);
+Route::get('/blog', [ListController::class, 'blog']);
